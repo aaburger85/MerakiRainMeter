@@ -6,4 +6,6 @@ This skin leverages python3 to operate and uses a mixture of netsh commands, as 
 Requirements:
 1. Rainmeter version 4.3 or newer - [Rainmeter Webpage](https://www.rainmeter.net/)
 2. Python3 installed in PATH - [python3 download page](https://www.python.org/downloads/windows/)
-3. Enjoy!
+3. Download the rmskin file
+4. Install rmskin
+5. Enjoy!
