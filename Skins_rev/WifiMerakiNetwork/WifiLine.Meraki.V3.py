@@ -33,12 +33,14 @@ if wificonnected in wifioutput:
 else:
 	print("Disconnected")
 
-def networkFunc(line):
+def network_func(line):
 	for n in networkArr:
 		if n in str(line):
 			tupleIP = [tuple(i.split(': ')) for i in line]
 			ipdict = dict((x, y) for x, y in tupleIP)
 			ipdict = {k.strip(): v for k,v in ipdict.items()}
+			# print(ipdict) # for debug use to see values with there prop
+			return ipdict[n.replace(":", "")]
 
 
 ipoutput = subprocess.check_output(['netsh', 'interface', 'ipv4', 'show', 'addresses', 'name=Wi-Fi']).decode('UTF-8').splitlines()
@@ -47,7 +49,7 @@ dhcpconnected = '    DHCP enabled:                         Yes'
 if wificonnected in wifioutput:
 	if dhcpconnected in ipoutput:
 		for line in ipoutput:
-			nLine = networkFunc(line)
+			nLine = network_func(line)
 			if nLine is not None:
 				ndata.append(nLine.lstrip(' '))
 			else:
